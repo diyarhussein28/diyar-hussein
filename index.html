@@ -151,6 +151,27 @@ details:last-of-type{border-bottom:1px solid var(--line)}
 summary{cursor:pointer;font-weight:600;color:var(--ink)}
 .legal{padding-top:12px;display:grid;gap:10px;max-width:72ch;font-size:14.5px}
 .legal h4{margin:8px 0 0;font-size:15px;color:var(--ink)}
+
+/* Website-Paket */
+.offer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.offer{grid-template-columns:1fr}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan.hl{border:2px solid var(--accent)}
+.plan-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.plan h3{font-size:20px;font-weight:700}
+.chip{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:3px 9px;border-radius:99px}
+.price{font-family:var(--f-display);font-weight:800;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--f-body);font-weight:600;font-size:15px;color:var(--muted)}
+.plan .sub{color:var(--muted);font-size:15px;margin-top:-6px}
+.plan ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15.5px}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:5px;border-left:2px solid var(--petrol);border-bottom:2px solid var(--petrol);transform:rotate(-45deg)}
+.plan .btn{align-self:flex-start;margin-top:auto}
+.both{margin-top:16px;background:var(--tint);border-radius:12px;padding:18px 22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:760px){.both{grid-template-columns:1fr}}
+.both b{display:block;font-family:var(--f-display);font-size:16px;margin-bottom:2px}
+.both span{color:var(--muted);font-size:15px}
+.fine{color:var(--muted);font-size:14px;margin-top:12px}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -161,7 +182,7 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
   <div class="wrap">
     <a class="brand" href="#top"><img class="brand-logo" src="favicon.svg" alt="" width="32" height="32">Diyar Hussein</a>
     <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#profil">Profil</a><a href="#kontakt">Kontakt</a>
+      <a href="#leistungen">Leistungen</a><a href="#website-paket">Website-Paket</a><a href="#ablauf">Ablauf</a><a href="#profil">Profil</a><a href="#kontakt">Kontakt</a>
     </nav>
     <a class="btn btn-primary btn-sm" href="#kontakt">Erstgespräch</a>
   </div>
@@ -211,7 +232,7 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
         <div class="pos" role="listitem">
           <div class="pos-no">02</div>
           <div><h3>Websites &amp; Webportale</h3><p>Ein Auftritt, der auf dem Handy funktioniert und Anfragen bringt.</p></div>
-          <ul><li>Firmenwebsites und Landingpages</li><li>Kunden- und Mitarbeiterportale</li><li>Kontakt- und Anfrageformulare mit Anbindung an Ihre Abläufe</li><li>Pflege, Updates und technische Suchmaschinen-Optimierung</li></ul>
+          <ul><li>Firmenwebsites und Landingpages</li><li>Kunden- und Mitarbeiterportale</li><li>Kontakt- und Anfrageformulare mit Anbindung an Ihre Abläufe</li><li>Pflege, Updates und technische Suchmaschinen-Optimierung</li><li>Für Praxen und Läden: <a href="#website-paket">Website-Paket ab 250 €</a></li></ul>
         </div>
 
         <div class="pos" role="listitem">
@@ -245,6 +266,47 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
         </div>
       </div>
       <div class="lv-foot"><span>Abrechnung als Festpreis oder nach Aufwand, vorher schriftlich vereinbart.</span><a href="#kontakt">Angebot anfragen →</a></div>
+    </div>
+  </section>
+
+  <section id="website-paket" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Website für Praxen und Läden</h2>
+        <p>Keine oder eine veraltete Website? Ich baue Ihnen einen modernen Auftritt, der auf dem Handy gut aussieht und Kunden direkt zu Ihnen führt. Fertig in der Regel innerhalb von 10 Werktagen, nachdem Texte und Fotos da sind.</p>
+      </div>
+      <div class="offer">
+        <div class="plan hl">
+          <div class="plan-top"><h3>Website mit Betreuung</h3><span class="chip">Beliebt</span></div>
+          <div class="price">250 € <small>einmalig</small></div>
+          <p class="sub">+ 15 € im Monat, Mindestlaufzeit 12 Monate</p>
+          <ul>
+            <li>Hosting, Domain und SSL-Zertifikat inklusive</li>
+            <li>Kleine Änderungen jeden Monat inklusive, z. B. Öffnungszeiten, Urlaub, neue Fotos</li>
+            <li>Technische Updates und Sicherheit übernehme ich</li>
+            <li>Ein fester Ansprechpartner, wenn etwas ist</li>
+          </ul>
+          <a class="btn btn-primary" href="#kontakt">Website anfragen</a>
+        </div>
+        <div class="plan">
+          <div class="plan-top"><h3>Website zum Festpreis</h3></div>
+          <div class="price">600 € <small>einmalig</small></div>
+          <p class="sub">Ohne Abo, die Website gehört komplett Ihnen</p>
+          <ul>
+            <li>Übergabe aller Dateien und Zugänge</li>
+            <li>Hosting und Domain auf Ihren Namen, ich richte alles ein</li>
+            <li>Spätere Änderungen nach Aufwand</li>
+            <li>Ideal, wenn Sie selbst oder jemand im Team pflegt</li>
+          </ul>
+          <a class="btn btn-ghost" href="#kontakt">Festpreis anfragen</a>
+        </div>
+      </div>
+      <div class="both">
+        <div><b>In beiden Paketen</b><span>Bis zu 5 Seiten, optimiert für Handy und Tablet, Kontaktformular und Anfahrt mit Link zu Google Maps.</span></div>
+        <div><b>Rechtssicher aufgebaut</b><span>Impressum und Datenschutzerklärung an der richtigen Stelle, ohne Tracking-Cookies.</span></div>
+        <div><b>Bei Google gefunden</b><span>Saubere Technik, schnelle Ladezeit und Verknüpfung mit Ihrem Google-Unternehmensprofil.</span></div>
+      </div>
+      <p class="fine">Alle Preise netto zzgl. gesetzlicher USt. Texte und Fotos liefern Sie, auf Wunsch helfe ich beim Formulieren.</p>
     </div>
   </section>
 
