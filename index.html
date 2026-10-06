@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1E4F5B">
 <title>Diyar Hussein IT-Dienstleistungen</title>
 <meta name="description" content="Prozessautomatisierung, Websites, Software und IT-Service-Management für Handwerk und kleine Unternehmen in Leverkusen und Umgebung.">
 <style>
@@ -45,7 +49,8 @@ p{margin:0}
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .brand{font-family:var(--f-display);font-weight:800;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
-.brand-mark{width:28px;height:28px;border-radius:6px;background:var(--petrol);color:var(--paper);display:grid;place-items:center;font-size:13px;font-family:var(--f-mono);font-weight:600}
+.brand-logo{width:32px;height:32px;border-radius:7px;display:block}
+.brand-mark-old{width:28px;height:28px;border-radius:6px;background:var(--petrol);color:var(--paper);display:grid;place-items:center;font-size:13px;font-family:var(--f-mono);font-weight:600}
 .nav-links{display:flex;gap:22px;font-size:15px}
 .nav-links a{text-decoration:none;color:var(--muted)}
 .nav-links a:hover{color:var(--ink)}
@@ -154,7 +159,7 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="brand-mark">DH</span>Diyar Hussein</a>
+    <a class="brand" href="#top"><img class="brand-logo" src="favicon.svg" alt="" width="32" height="32">Diyar Hussein</a>
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#profil">Profil</a><a href="#kontakt">Kontakt</a>
     </nav>
