@@ -158,12 +158,44 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
 <main class="hero wrap">
   <div class="hero-text">
     <span class="label">Anfrage eingegangen</span>
-    <h1>Danke! <em>Ich melde mich.</em></h1>
-    <p class="lead">Ihre Anfrage für den kostenlosen Büro-Check ist angekommen. Ich rufe Sie innerhalb von 24 Stunden an Werktagen an und schlage einen Termin vor.</p>
+    <h1>Danke! <em>Fast geschafft.</em></h1>
+    <p class="lead">Ihre Anfrage für den kostenlosen Büro-Check ist angekommen. Wählen Sie unten direkt Ihren Termin. Falls Sie lieber angerufen werden, melde ich mich innerhalb von 24 Stunden an Werktagen.</p>
     <p class="lead">Eilig? Rufen Sie direkt an: <a href="tel:+4917620591765"><b>+49 176 20591765</b></a></p>
     <div class="cta-row"><a class="btn btn-ghost" href="/handwerk/">Zurück zur Seite</a></div>
   </div>
 </main>
+<section class="wrap" id="termin" style="padding-bottom:64px;margin-top:-56px">
+  <div style="background:var(--surface,#fff);border:1px solid var(--line,#D2DBDA);border-radius:16px;padding:24px">
+    <span class="label">Schritt 2</span>
+    <h2 style="margin:10px 0 6px">Wählen Sie jetzt Ihren Wunschtermin</h2>
+    <p style="margin:0 0 16px;color:var(--muted,#55666B)">20 Minuten, kostenlos, telefonisch oder per Video. Sie bekommen sofort eine Bestätigung per E-Mail.</p>
+    <div id="cal-consent">
+      <p style="font-size:14px;color:var(--muted,#55666B);margin:0 0 12px">Der Terminkalender wird von Cal.com bereitgestellt. Erst wenn Sie auf den Button klicken, wird er geladen und Daten werden an Cal.com übertragen. Mehr in der <a href="/#datenschutz">Datenschutzerklärung</a>.</p>
+      <button class="btn btn-primary" type="button" id="cal-load">Kalender anzeigen</button>
+      <a class="btn btn-ghost" href="https://cal.com/diyar-hussein/buro-check" target="_blank" rel="noopener" style="margin-left:8px">In neuem Tab öffnen</a>
+    </div>
+    <div id="cal-inline" style="width:100%;min-height:640px;overflow:auto;display:none"></div>
+  </div>
+</section>
+<script>
+(function(){
+var b=document.getElementById('cal-load');if(!b)return;
+b.addEventListener('click',function(){
+ document.getElementById('cal-consent').style.display='none';
+ var box=document.getElementById('cal-inline');box.style.display='block';
+ var d={};try{d=JSON.parse(sessionStorage.getItem('dh-check-daten')||'{}')}catch(e){}
+ (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var doc = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; doc.head.appendChild(doc.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+ Cal("init","check",{origin:"https://cal.com"});
+ var cfg={layout:"month_view",theme:"light"};
+ if(d.name)cfg.name=d.name; if(d.email)cfg.email=d.email;
+ if(d.telefon){var t=d.telefon.replace(/[^0-9+]/g,'');if(t.indexOf('00')===0)t='+'+t.slice(2);else if(t.charAt(0)==='0')t='+49'+t.slice(1);if(t.charAt(0)==='+')cfg.attendeePhoneNumber=t;}
+ var n=[d.betrieb,d.gewerk,d.zeitfresser].filter(Boolean).join(' · ');if(n)cfg.notes=n;
+ Cal.ns.check("inline",{elementOrSelector:"#cal-inline",calLink:"diyar-hussein/buro-check",config:cfg});
+ Cal.ns.check("ui",{hideEventTypeDetails:false,layout:"month_view",cssVarsPerTheme:{light:{"cal-brand":"#1E4F5B"}}});
+});
+})();
+</script>
+
 <footer><div class="wrap"><span>© 2026 Diyar Hussein Dienstleistungen · Leverkusen</span><nav aria-label="Rechtliches"><a href="/#impressum">Impressum</a><a href="/#datenschutz">Datenschutz</a></nav></div></footer>
 </body>
 </html>

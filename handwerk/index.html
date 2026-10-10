@@ -299,9 +299,10 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
       <div class="form-intro">
         <span class="label">Kostenloser Büro-Check</span>
         <h2 style="margin-top:12px">Lassen Sie uns 20 Minuten über Ihr Büro sprechen.</h2>
-        <p>Ich melde mich innerhalb von 24 Stunden an Werktagen und schlage einen Termin vor.</p>
+        <p>Nach dem Absenden wählen Sie direkt Ihren Wunschtermin im Kalender. Wer lieber angerufen wird, hört innerhalb von 24 Stunden an Werktagen von mir.</p>
         <ul>
           <li>Kostenlos und unverbindlich</li>
+          <li>Termin selbst wählen, sofort bestätigt</li>
           <li>Telefonisch oder vor Ort in Leverkusen und Köln</li>
           <li>Danach ein Vorschlag mit Festpreis</li>
         </ul>
@@ -362,6 +363,12 @@ footer nav{display:flex;gap:20px;flex-wrap:wrap}
     if(src){document.getElementById('f-quelle').value=(src+' '+(p.get('utm_content')||'')).trim().slice(0,80);}
   }catch(e){}
 })();
+</script>
+<script>
+(function(){var f=document.querySelector('form[name="buero-check"]');if(!f)return;
+f.addEventListener('submit',function(){try{var d=new FormData(f);var z=d.getAll('zeitfresser').join(', ');
+var o={name:d.get('name')||'',email:d.get('email')||'',telefon:d.get('telefon')||'',betrieb:d.get('betrieb')||'',gewerk:d.get('gewerk')||'',zeitfresser:z};
+sessionStorage.setItem('dh-check-daten',JSON.stringify(o));}catch(e){}});})();
 </script>
 </body>
 </html>
