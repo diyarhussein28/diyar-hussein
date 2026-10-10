@@ -182,6 +182,33 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
 .both b{display:block;font-family:var(--f-display);font-size:16px;margin-bottom:2px}
 .both span{color:var(--muted);font-size:15px}
 .fine{color:var(--muted);font-size:14px;margin-top:12px}
+
+/* Mobile Menü + Büro-Check */
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-links a.nav-hl{color:var(--accent);font-weight:600}
+.menu-btn{display:none;width:44px;height:44px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mnav{border-top:1px solid var(--line);background:var(--paper)}
+.nav .mnav .wrap{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding-block:8px 18px}
+.mnav a{text-decoration:none;padding:13px 2px;border-bottom:1px solid var(--line);font-size:17px}
+.mnav a.mnav-hl{display:flex;flex-direction:column;gap:2px;background:var(--tint);border:1.5px solid var(--accent);border-radius:10px;padding:12px 14px;margin:8px 0 6px}
+.mnav a.mnav-hl b{color:var(--ink)}
+.mnav a.mnav-hl small{color:var(--muted);font-size:14px}
+.mnav a.btn{justify-content:center;margin-top:14px;border-bottom:1.5px solid transparent}
+.mnav a.mnav-tel{border-bottom:0;text-align:center;color:var(--muted);font-size:15px}
+@media (max-width:720px){.menu-btn{display:inline-flex}}
+@media (max-width:420px){.nav-cta{display:none}}
+@media (min-width:721px){.mnav{display:none!important}}
+.check-band{padding-block:clamp(32px,5vw,56px) 0}
+.check-card{background:var(--tint);border:1.5px solid var(--accent);border-radius:14px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1.5fr 1fr;gap:24px 40px;align-items:center}
+.check-card h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;margin-top:10px}
+.check-card p{color:var(--muted);margin-top:12px;max-width:60ch}
+.check-cta{display:flex;flex-direction:column;gap:10px}
+.check-cta .btn{justify-content:center}
+@media (max-width:760px){.check-card{grid-template-columns:1fr}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -192,10 +219,25 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
   <div class="wrap">
     <a class="brand" href="#top"><img class="brand-logo" src="favicon.svg" alt="" width="32" height="32">Diyar Hussein</a>
     <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a><a href="#website-paket">Website-Paket</a><a href="#ablauf">Ablauf</a><a href="#profil">Profil</a><a href="#kontakt">Kontakt</a>
+      <a class="nav-hl" href="/handwerk/#check">Büro-Check</a><a href="#leistungen">Leistungen</a><a href="#website-paket">Website-Paket</a><a href="#ablauf">Ablauf</a><a href="#profil">Profil</a><a href="#kontakt">Kontakt</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="#kontakt">Erstgespräch</a>
+    <div class="nav-right">
+      <a class="btn btn-primary btn-sm nav-cta" href="#kontakt">Erstgespräch</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
   </div>
+  <nav id="mnav" class="mnav" aria-label="Mobile Navigation" hidden>
+    <div class="wrap">
+      <a class="mnav-hl" href="/handwerk/#check"><b>Kostenloser Büro-Check</b><small>Für Handwerksbetriebe · 20 Minuten · Termin selbst wählen</small></a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#website-paket">Website-Paket</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#profil">Profil</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn btn-primary" href="#kontakt">Kostenloses Erstgespräch</a>
+      <a class="mnav-tel" href="tel:+4917620591765">Anrufen: +49 176 20591765</a>
+    </div>
+  </nav>
 </header>
 
 <main id="top">
@@ -223,6 +265,23 @@ summary{cursor:pointer;font-weight:600;color:var(--ink)}
       </ul>
     </div>
   </div>
+
+
+  <section class="check-band" aria-labelledby="check-band-h">
+    <div class="wrap">
+      <div class="check-card">
+        <div>
+          <span class="label">Für Handwerksbetriebe</span>
+          <h2 id="check-band-h">Kostenloser Büro-Check in 20 Minuten</h2>
+          <p>Wir schauen gemeinsam, welche Büroarbeit Sie am meisten Zeit kostet: Angebote, Rechnungen, Termine oder Anrufe. Danach bekommen Sie einen Vorschlag mit Festpreis. Ihren Termin wählen Sie direkt im Kalender.</p>
+        </div>
+        <div class="check-cta">
+          <a class="btn btn-primary" href="/handwerk/#check">Büro-Check anfragen</a>
+          <a class="btn btn-ghost" href="/handwerk/">So funktioniert es</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="leistungen">
     <div class="wrap">
@@ -421,6 +480,13 @@ document.querySelectorAll('.copy').forEach(function(b){
 
 <script>
 (function(){function o(){var h=location.hash.slice(1);if(h==="impressum"||h==="datenschutz"){var d=document.getElementById(h);if(d){d.open=true;d.scrollIntoView();}}}o();addEventListener("hashchange",o);})();
+</script>
+<script>
+(function(){var b=document.querySelector('.menu-btn'),m=document.getElementById('mnav');if(!b||!m)return;
+function set(o){b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen');m.hidden=!o;}
+b.addEventListener('click',function(){set(m.hidden);});
+m.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});})();
 </script>
 </body>
 </html>
